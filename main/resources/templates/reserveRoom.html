@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Create Meeting</title>
+  <!-- Bootstrap CSS link -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+        rel="stylesheet" integrity="..." crossorigin="anonymous">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" th:fragment="header">
+  <!-- Navigation bar -->
+  <!-- ... -->
+</nav>
+<br/>
+<div class="container">
+  <div class="row col-md-8 offset-md-2">
+    <div class="card">
+      <div class="card-header">
+        <h2 class="text-center">Create Meeting</h2>
+      </div>
+      <div class="card-body">
+        <!-- Meeting creation form -->
+        <form th:action="@{'/reserveroom/save/' + ${room.room_id}}"  th:object="${meeting}">
+          <div class="form-group mb-3">
+            <label class="form-label">Meeting Name</label>
+            <input class="form-control" name="name" th:field="*{name}" type="text"/>
+            <p class="text-danger" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></p>
+          </div>
+
+          <div class="form-group mb-3">
+            <label class="form-label">Start Time</label>
+            <input class="form-control" name="startTime" th:field="*{startTime}" type="datetime-local"/>
+            <p class="text-danger" th:if="${#fields.hasErrors('startTime')}" th:errors="*{startTime}"></p>
+          </div>
+
+          <div class="form-group mb-3">
+            <label class="form-label">End Time</label>
+            <input class="form-control" name="endTime" th:field="*{endTime}" type="datetime-local"/>
+            <p class="text-danger" th:if="${#fields.hasErrors('endTime')}" th:errors="*{endTime}"></p>
+          </div>
+
+
+
+          <!-- Input fields for meeting ID and user ID -->
+          <!--<div class="form-group mb-3">
+            <label class="form-label">Meeting ID</label>
+            <input class="form-control" name="meetingId" type="text"/>
+          </div>-->
+
+          <!--<div class="form-group mb-3">
+            <label class="form-label">User ID</label>
+            <input class="form-control" name="userId" type="text"/>
+          </div>-->
+
+          <div class="form-group mb-3">
+            <button class="btn btn-primary" type="submit">Create Meeting</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

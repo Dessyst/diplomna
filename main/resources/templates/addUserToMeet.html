@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Add User to Meeting</title>
+</head>
+
+<body>
+<div>
+  <h2>Add User to Meeting</h2>
+
+  <!-- Form to add a user to the meeting -->
+  <form th:action="@{/addusertomeeting/{meetingId}(meetingId=${meeting.meeting_id})}" method="post">
+    <!--<label for="meetingId">Meeting ID:</label><br>
+    <input type="text" id="meetingId" name="meetingId"><br>-->
+
+    <label for="selectedUserId">Selected User:</label><br>
+    <select id="selectedUserId" name="userId">
+      <!-- Thymeleaf iteration over users -->
+      <option th:each="user: ${users}" th:value="${user.user_id}" th:text="${user.name}"></option>
+    </select><br><br>
+
+    <input type="submit" value="Submit">
+  </form>
+
+</div>
+<td th:text="${meeting.id}"></td>
+<td th:text="${meeting.name}"></td>
+<td th:text="${meeting.startTime}"></td>
+<td th:text="${meeting.endTime}"></td>
+<td>
+  <ul>
+    <li th:each="user : ${meeting.users}" th:text="${user.name}"></li>
+  </ul>
+</td>
+</body>
+
+</html>

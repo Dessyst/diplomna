@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>User Meetings and Meeting Users</title>
+  <!-- Add your CSS links or other head content -->
+</head>
+<body>
+<h1>User Meetings and Meeting Users</h1>
+
+<!-- Display user's meetings -->
+<h2>User's Meetings:</h2>
+<ul>
+  <li th:each="meeting : ${meetings}">
+    <span th:text="${meeting.name}"></span>
+  </li>
+</ul>
+
+<!-- Display meeting's users -->
+<h2>Meeting's Users:</h2>
+<ul>
+  <li th:each="user : ${users}">
+    <span th:text="${user.name}"></span>
+  </li>
+</ul>
+
+<!-- Add more HTML structure or styles as needed -->
+</body>
+</html>

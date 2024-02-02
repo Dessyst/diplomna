@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Meeting Scheduler</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+
+<body>
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <div class="card">
+        <div class="card-header">
+          <h3 class="text-center">Schedule a Meeting</h3>
+        </div>
+        <div class="card-body">
+          <form th:action="@{/meetings}" method="post">
+            <div class="mb-3">
+              <label for="meetingName" class="form-label">Meeting Name</label>
+              <input type="text" class="form-control" id="meetingName" placeholder="Enter meeting name" th:name="meetingName">
+            </div>
+            <div class="mb-3">
+              <label for="startDateTime" class="form-label">Start Date and Time</label>
+              <input type="datetime-local" class="form-control" id="startDateTime" th:name="startDateTime">
+            </div>
+            <div class="mb-3">
+              <label for="endDateTime" class="form-label">End Date and Time</label>
+              <input type="datetime-local" class="form-control" id="endDateTime" th:name="endDateTime">
+            </div>
+            <button type="submit" class="btn btn-primary">Schedule</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Meeting Details</title>
+</head>
+<body>
+
+<div>
+    <h2>Meeting Details</h2>
+    <p>ID: <span th:text="${meeting.id}"></span></p>
+    <p>Title: <span th:text="${meeting.name}"></span></p>
+    <!-- Add other meeting details as needed -->
+
+    <!-- Button to redirect to addusertomeeting/{meetingId} -->
+    <a th:href="@{'/addusertomeeting/' + ${meeting.id}}" class="btn btn-primary">Add Users to Meeting</a>
+
+    <!-- Button to redirect to meetingsall -->
+    <a th:href="@{'/meetingsall'}" class="btn btn-secondary">Back to Meetings All</a>
+</div>
+
+</body>
+</html>

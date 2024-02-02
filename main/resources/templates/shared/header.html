@@ -1,0 +1,12 @@
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<!-- Displayed when the user is not logged in -->
+<div sec:authorize="!isAuthenticated()" xmlns:sec="http://www.w3.org/1999/xhtml">
+  <a th:href="@{/login}">Login</a>
+</div>
+
+<!-- Displayed when the user is logged in -->
+<div sec:authorize="isAuthenticated()">
+  <a th:href="@{/myAccount}">My Account</a>
+  <a th:href="@{/logout}">Logout</a>
+</div>
